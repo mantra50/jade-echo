@@ -1,0 +1,21 @@
+{
+  "cardId": "card-011",
+  "nameCn": "玉石转化",
+  "nameEn": "Jade Transformation",
+  "type": "转化",
+  "energyCost": 15,
+  "rarity": "★★☆☆",
+  "palette": {
+    "primary": "#00FA9A",
+    "secondary": "#228B22",
+    "accent": "#7CFC00",
+    "background": "#041208"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, beautiful young female daoist sorceress kneeling in meditation pose inside a ring of ancient Chinese jigsaw puzzle pieces slowly transforming into glowing emerald jade tiles floating in mid-air around her, her simple elegant green daoist robes with subtle cloud patterns now shimmering with faint jade glow, one hand extended palm upward with a single chess piece transforming from ordinary stone to luminous jade, long black hair in traditional bun hairstyle with simple jade hairpin ornaments, serene focused expression with closed eyes, floating green jade fragments and dust particles swirling in mystic circle around her, ancient stone temple floor with carved ritual circle pattern, soft green and white mystical light emanating from the jade tiles, fresh green white and deep forest palette, ink brush linework with jade luminosity glow effects, Chinese mythology jade magic style, cartoon realism with translucent jade texture effects, hyperdetailed stone-to-jade transformation shimmer, 4k ultra detailed illustration",
+  "effects": [
+    "棋子被翡翠般玉石光芒包裹转变",
+    "翡翠碎片与灵气粒子在周围旋转",
+    "古老石台与符文阵法地面"
+  ],
+  "notes": "转化类·群体·玉石棋子生成；翡翠质感为核心视觉符号，体现石→玉蜕变过程"
+}

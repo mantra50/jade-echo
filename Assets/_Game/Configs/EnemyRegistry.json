@@ -1,0 +1,248 @@
+{
+  "chapterId": 1,
+  "chapterName": "第一章：暗影森林",
+  "chapterNameCn": "第一章：暗影森林",
+  "enemies": [
+    {
+      "enemyId": "shadow_wolf",
+      "name": "暗影狼",
+      "nameCn": "暗影狼",
+      "type": "normal",
+      "tier": 1,
+      "health": 80,
+      "attack": 15,
+      "defense": 5,
+      "speed": 12,
+      "goldReward": 10,
+      "expReward": 15,
+      "behaviorProfile": {
+        "aggression": "high",
+        "preferredTarget": "player",
+        "attackPattern": "single",
+        "movePattern": "rush"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/ShadowWolf",
+        "iconPath": "Art/Enemies/shadow_wolf_icon",
+        "sizeScale": 1.0
+      },
+      "dropTable": {
+        "goldRange": [5, 15],
+        "cardDropChance": 0.1,
+        "possibleCardRewards": ["heal_10", "energy_small"]
+      }
+    },
+    {
+      "enemyId": "shadow_sprite",
+      "name": "暗影精灵",
+      "nameCn": "暗影精灵",
+      "type": "ranged",
+      "tier": 1,
+      "health": 50,
+      "attack": 20,
+      "defense": 2,
+      "speed": 16,
+      "goldReward": 12,
+      "expReward": 18,
+      "behaviorProfile": {
+        "aggression": "medium",
+        "preferredTarget": "player",
+        "attackPattern": "ranged",
+        "movePattern": "flank"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/ShadowSprite",
+        "iconPath": "Art/Enemies/shadow_sprite_icon",
+        "sizeScale": 0.85
+      },
+      "dropTable": {
+        "goldRange": [8, 18],
+        "cardDropChance": 0.15,
+        "possibleCardRewards": ["clear_row", "energy_small"]
+      }
+    },
+    {
+      "enemyId": "corrupted_golem",
+      "name": "腐蚀傀儡",
+      "nameCn": "腐蚀傀儡",
+      "type": "tank",
+      "tier": 2,
+      "health": 200,
+      "attack": 25,
+      "defense": 20,
+      "speed": 4,
+      "goldReward": 40,
+      "expReward": 50,
+      "behaviorProfile": {
+        "aggression": "medium",
+        "preferredTarget": "player",
+        "attackPattern": "aoe",
+        "movePattern": "slow"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/CorruptedGolem",
+        "iconPath": "Art/Enemies/corrupted_golem_icon",
+        "sizeScale": 1.4
+      },
+      "dropTable": {
+        "goldRange": [30, 50],
+        "cardDropChance": 0.25,
+        "possibleCardRewards": ["clear_area", "shield_20", "heal_30"]
+      }
+    },
+    {
+      "enemyId": "golem_boss_01",
+      "name": "腐蚀傀儡",
+      "nameCn": "腐蚀傀儡",
+      "type": "boss",
+      "tier": 3,
+      "health": 500,
+      "attack": 35,
+      "defense": 30,
+      "speed": 3,
+      "goldReward": 200,
+      "expReward": 150,
+      "isBoss": true,
+      "behaviorProfile": {
+        "aggression": "extreme",
+        "preferredTarget": "player",
+        "attackPattern": "aoe",
+        "movePattern": "slow"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/Bosses/GolemBoss01",
+        "iconPath": "Art/Enemies/boss_golem_01_icon",
+        "sizeScale": 2.0,
+        "hasBossBar": true,
+        "hasBossIntro": true
+      },
+      "phaseThresholds": [0.66, 0.33],
+      "specialAbilities": [
+        {
+          "abilityId": "golem_rage",
+          "abilityName": "愤怒打击",
+          "phase": 1,
+          "description": "蓄力后对玩家造成50点伤害",
+          "damage": 50,
+          "cooldown": 3
+        },
+        {
+          "abilityId": "golem_rock_throw",
+          "abilityName": "岩石投掷",
+          "phase": 2,
+          "description": "随机清除棋盘2×2区域",
+          "damage": 30,
+          "cooldown": 2
+        },
+        {
+          "abilityId": "golem_final_burst",
+          "abilityName": "毁灭爆发",
+          "phase": 3,
+          "description": "全场造成100点伤害",
+          "damage": 100,
+          "cooldown": 1
+        }
+      ],
+      "dropTable": {
+        "goldRange": [180, 250],
+        "cardDropChance": 1.0,
+        "guaranteedCardRewards": ["inferno_strike"],
+        "possibleCardRewards": ["clear_area", "bomb_fire", "shield_50"]
+      }
+    },
+    {
+      "enemyId": "forest_spider",
+      "name": "森林毒蛛",
+      "nameCn": "森林毒蛛",
+      "type": "poison",
+      "tier": 1,
+      "health": 60,
+      "attack": 18,
+      "defense": 4,
+      "speed": 14,
+      "goldReward": 11,
+      "expReward": 16,
+      "statusEffects": {
+        "poison": {
+          "duration": 3,
+          "damagePerTurn": 8,
+          "triggerChance": 0.4
+        }
+      },
+      "behaviorProfile": {
+        "aggression": "high",
+        "preferredTarget": "player",
+        "attackPattern": "poison",
+        "movePattern": "ambush"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/ForestSpider",
+        "iconPath": "Art/Enemies/forest_spider_icon",
+        "sizeScale": 0.9
+      },
+      "dropTable": {
+        "goldRange": [7, 16],
+        "cardDropChance": 0.12,
+        "possibleCardRewards": ["poison_dart", "heal_10"]
+      }
+    },
+    {
+      "enemyId": "wind_elemental",
+      "name": "风元素",
+      "nameCn": "风元素",
+      "type": "ranged",
+      "tier": 2,
+      "health": 45,
+      "attack": 28,
+      "defense": 3,
+      "speed": 20,
+      "goldReward": 25,
+      "expReward": 35,
+      "behaviorProfile": {
+        "aggression": "medium",
+        "preferredTarget": "board",
+        "attackPattern": "ranged",
+        "movePattern": "flank"
+      },
+      "visualConfig": {
+        "prefabPath": "Prefabs/Enemies/WindElemental",
+        "iconPath": "Art/Enemies/wind_elemental_icon",
+        "sizeScale": 1.0
+      },
+      "dropTable": {
+        "goldRange": [20, 35],
+        "cardDropChance": 0.2,
+        "possibleCardRewards": ["shuffle", "swap"]
+      }
+    }
+  ],
+  "enemyFamilies": [
+    {
+      "familyId": "shadow",
+      "familyName": "暗影族",
+      "commonWeakness": "light",
+      "members": ["shadow_wolf", "shadow_sprite"]
+    },
+    {
+      "familyId": "elemental",
+      "familyName": "元素族",
+      "commonWeakness": "earth",
+      "members": ["wind_elemental"]
+    },
+    {
+      "familyId": " Constructs",
+      "familyName": "傀儡族",
+      "commonWeakness": "water",
+      "members": ["corrupted_golem", "golem_boss_01"]
+    }
+  ],
+  "elementalWeaknessChart": {
+    "fire": { "strong": "wind", "weak": "water" },
+    "water": { "strong": "fire", "weak": "earth" },
+    "earth": { "strong": "wind", "weak": "fire" },
+    "wind": { "strong": "earth", "weak": "water" },
+    "light": { "strong": "shadow", "weak": "dark" }
+  },
+  "version": "0.1",
+  "lastUpdated": "2026-05-12"
+}

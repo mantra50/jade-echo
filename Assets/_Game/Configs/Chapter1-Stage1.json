@@ -1,0 +1,213 @@
+{
+  "chapterId": 1,
+  "stageId": 1,
+  "stageName": "觉醒",
+  "stageNameCn": "觉醒",
+  "description": "最初的试炼。掌握消除与卡牌的基本配合，击败暗影狼。",
+  "unlockCondition": {
+    "type": "story",
+    "chapterCompleted": 0
+  },
+  "difficulty": 1,
+
+  "boardConfig": {
+    "width": 8,
+    "height": 8,
+    "pieceTypes": [
+      "fire",
+      "water",
+      "earth",
+      "wind",
+      "light"
+    ],
+    "initialFillStrategy": "random"
+  },
+
+  "waveConfig": {
+    "waves": [
+      {
+        "waveIndex": 0,
+        "waveName": "第一波",
+        "enemies": [
+          {
+            "enemyId": "shadow_wolf",
+            "count": 3,
+            "position": "front"
+          }
+        ],
+        "spawnDelay": 0.0,
+        "waveCompleteCondition": {
+          "type": "defeat_all"
+        },
+        "reward": {
+          "score": 100,
+          "gold": 10
+        }
+      },
+      {
+        "waveIndex": 1,
+        "waveName": "第二波",
+        "enemies": [
+          {
+            "enemyId": "shadow_wolf",
+            "count": 4,
+            "position": "front"
+          },
+          {
+            "enemyId": "shadow_sprite",
+            "count": 2,
+            "position": "back"
+          }
+        ],
+        "spawnDelay": 3.0,
+        "waveCompleteCondition": {
+          "type": "defeat_all"
+        },
+        "reward": {
+          "score": 200,
+          "gold": 20
+        }
+      },
+      {
+        "waveIndex": 2,
+        "waveName": "第三波",
+        "enemies": [
+          {
+            "enemyId": "shadow_wolf",
+            "count": 2,
+            "position": "front"
+          },
+          {
+            "enemyId": "shadow_sprite",
+            "count": 3,
+            "position": "back"
+          },
+          {
+            "enemyId": "corrupted_golem",
+            "count": 1,
+            "position": "front"
+          }
+        ],
+        "spawnDelay": 3.0,
+        "waveCompleteCondition": {
+          "type": "defeat_all"
+        },
+        "reward": {
+          "score": 300,
+          "gold": 30
+        }
+      }
+    ]
+  },
+
+  "bossConfig": {
+    "bossId": "golem_boss_01",
+    "bossName": "腐蚀傀儡",
+    "bossNameCn": "腐蚀傀儡",
+    "health": 500,
+    "phaseCount": 3,
+    "phaseHealthThresholds": [0.66, 0.33, 0.0],
+    "phaseSkills": [
+      {
+        "phase": 1,
+        "skillId": "golem_rage",
+        "skillName": "愤怒打击",
+        "triggerTurn": 3,
+        "description": "对玩家造成50点伤害"
+      },
+      {
+        "phase": 2,
+        "skillId": "golem_rock_throw",
+        "skillName": "岩石投掷",
+        "triggerTurn": 2,
+        "description": "随机清除棋盘2×2区域"
+      },
+      {
+        "phase": 3,
+        "skillId": "golem_final_burst",
+        "skillName": "毁灭爆发",
+        "triggerTurn": 1,
+        "description": "全场造成100点伤害"
+      }
+    ],
+    "enrageTurn": 20,
+    "defeatReward": {
+      "score": 1000,
+      "gold": 200,
+      "exp": 150,
+      "cardUnlock": "inferno_strike"
+    }
+  },
+
+  "shopEvents": [
+    {
+      "eventId": "shop_01",
+      "triggerTurn": 3,
+      "type": "card_shop",
+      "title": "卡牌商店",
+      "titleCn": "卡牌商店",
+      "description": "消耗金币购买强力卡牌",
+      "offeredCards": [
+        {
+          "cardId": "clear_row",
+          "price": 50,
+          "stock": 1
+        },
+        {
+          "cardId": "clear_col",
+          "price": 50,
+          "stock": 1
+        },
+        {
+          "cardId": "heal_30",
+          "price": 30,
+          "stock": 2
+        },
+        {
+          "cardId": "energy_boost",
+          "price": 40,
+          "stock": 1
+        }
+      ]
+    },
+    {
+      "eventId": "shop_02",
+      "triggerTurn": 7,
+      "type": "card_shop",
+      "title": "卡牌商店",
+      "titleCn": "卡牌商店",
+      "description": "继续强化手牌",
+      "offeredCards": [
+        {
+          "cardId": "clear_area",
+          "price": 80,
+          "stock": 1
+        },
+        {
+          "cardId": "bomb_fire",
+          "price": 100,
+          "stock": 1
+        },
+        {
+          "cardId": "heal_50",
+          "price": 60,
+          "stock": 1
+        }
+      ]
+    }
+  ],
+
+  "stageCompletionReward": {
+    "score": 500,
+    "gold": 100,
+    "exp": 50,
+    "cardUnlock": "inferno_strike"
+  },
+
+  "music": {
+    "battle": "chapter1_stage1_battle",
+    "boss": "chapter1_boss_01"
+  },
+
+  "backgroundScene": "chapter1_stage1_bg"
+}

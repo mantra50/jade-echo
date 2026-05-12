@@ -1,0 +1,21 @@
+{
+  "cardId": "card-018",
+  "nameCn": "玉石祝福",
+  "nameEn": "Jade Blessing",
+  "type": "功能",
+  "energyCost": 8,
+  "rarity": "★★☆☆",
+  "palette": {
+    "primary": "#00FA9A",
+    "secondary": "#FFD700",
+    "accent": "#F0FFF0",
+    "background": "#0A1A10"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, radiant beautiful jade fairy princess standing on one leg in playful balance pose inside a perfect sphere of glowing green jade light, her ethereal palace robes made entirely of overlapping translucent jade jadeite and amber gemstones with inner light refraction creating rainbow highlights within each gem, each sleeve and hem trailing with small floating jade bead ornaments, disheveled long hair with jade ornaments cascading in wild halo around her head, joyful mischievous smile with slightly squinted happy eyes, one hand pointing downward at the chess board below where multiple glowing jade symbols are appearing on chess pieces in the pattern of a blessing ritual, legs and arms covered in delicate jade bracelet ornaments, the jade sphere she stands inside has ancient chinese astronomical star map patterns carved into its surface glowing with soft light, a magical chess board below with green jade light spreading across it blessing each piece, peach blossom petals and tiny jade beads floating in the air, dark mystical night sky background with constellations, green gold white and deep emerald palette, dramatic backlighting creating jade translucency effect, ink brush linework with jade refraction spark effects, Chinese mythology jade palace fairy style, cartoon realism with gemstone inner glow effects, hyperdetailed jadeite texture with internal cloud patterns, 4k ultra detailed illustration",
+  "effects": [
+    "玉石光环笼罩棋盘，每次消除伴随玉石闪光",
+    "宝石内光折射呈现彩虹光晕",
+    "星辰纹路玉球，夜空星座背景"
+  ],
+  "notes": "功能类·全体·下N次消除灵气×2；玉石光环笼罩为视觉核心，宝石质感与祝福感"
+}

@@ -1,0 +1,21 @@
+{
+  "cardId": "card-006",
+  "nameCn": "护体金钟",
+  "nameEn": "Golden Bell Shield",
+  "type": "防御",
+  "energyCost": 10,
+  "rarity": "★☆☆☆",
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#DAA520",
+    "accent": "#FFF8DC",
+    "background": "#1A1408"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, elderly chinese martial arts master standing with perfect posture, one hand raised in Buddhist mudra seal gesture, massive ornate golden ancient bell manifesting as translucent protective dome completely surrounding him, the bell surface covered in intricate Sanskrit sutra characters and Chinese calligraphy in seal script glowing with warm light, simple brown monk robes with subtle cloth texture and patched sections, halo of golden divine light above his shaved head, stone temple courtyard floor with moss patterns, scattered golden autumn maple leaves on the ground, contemplative serene expression with closed eyes, warm golden amber and deep brown palette, ink linework with golden light highlights, Chinese martial arts divine protection style, cartoon realism with sacred geometry details on bell, soft candlelight glow effect, 4k ultra detailed illustration",
+  "effects": [
+    "金钟护罩呈半透明穹顶，古钟符文发光",
+    "禅师蒙昧手印姿态",
+    "石板青苔与金色枫叶地面"
+  ],
+  "notes": "防御类·单体·金钟护罩；标志性防御卡，金色钟形护盾为核心视觉符号"
+}

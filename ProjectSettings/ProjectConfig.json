@@ -1,0 +1,39 @@
+# CardMatch - Unity 2022.3 LTS 项目配置文件
+# 配置文件模拟 - 实际 Unity Editor 会生成完整 ProjectSettings
+
+{
+  "unityVersion": "2022.3.50f1",
+  "ltsBranch": "2022.3 LTS",
+  "companyName": "WuxiaStudio",
+  "productName": "CardMatch",
+  "productGUID": "com.wuxiastudio.cardmatch",
+  "steamAppId": 000000,
+
+  "buildTarget": "Windows",
+  "scriptingBackend": "IL2CPP",
+  "apiCompatibility": ".NET Framework 4.8",
+
+  "hotfixSolution": "HybridCLR 3.4.2",
+  "resourceSolution": "YooAsset 1.5.4",
+
+  "csharpVersion": "10.0",
+  "nullable": "enable",
+
+  "clusterGroups": {
+    "common": "Assets/Art/Shared/",
+    "cards": "Assets/Art/Cards/",
+    "scenes": "Assets/Scenes/",
+    "audio": "Assets/Audio/",
+    "ui": "Assets/Art/UI/"
+  },
+
+  "hotfixBoundary": {
+    "aotAssemblies": [
+      "Bootstrap/",
+      "Platform/"
+    ],
+    "hotfixable": [
+      "_Game/"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "cardId": "card-004",
+  "nameCn": "穿云箭",
+  "nameEn": "Sky-Piercing Arrow",
+  "type": "攻击",
+  "energyCost": 18,
+  "rarity": "★★☆☆",
+  "palette": {
+    "primary": "#4B0082",
+    "secondary": "#6A5ACD",
+    "accent": "#E6E6FA",
+    "background": "#0D0D1A"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, armored warrior kneeling on one knee with both hands gripping a heavy broadsword planted into cracked stone ground, massive black turtle-snake mythological creature Xuanwu rising behind him as protective spirit shield, the serpentine dragon tail coiling around the warrior's body, dark scaled armor covered in ancient glowing green ipu seals and mystical runes, ominous skull mask helmet with small horns, dramatic low angle looking up at the towering guardian spirit beast, misty graveyard background with dead trees and broken tombstones, dark teal green shadow and black palette with toxic green glow from the mystical seals, ink brushstrokes heavy on shadows, Chinese mythology guardian spirit style, cartoon realism with heavy atmosphere, detailed scale textures and cracked stone terrain, dramatic rim lighting from the supernatural glow, 4k ultra detailed illustration",
+  "effects": [
+    "玄武（黑龟灵蛇）护卫形态，蛇尾缠绕",
+    "绿色玄冥符文发光",
+    "阴森墓园背景，枯树残碑"
+  ],
+  "notes": "攻击类·单体·无视护盾；以玄武为视觉符号，穿云箭与龟蛇护体并存，体现攻守一体"
+}

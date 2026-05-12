@@ -1,0 +1,87 @@
+{
+  "version": "0.1",
+  "tasks": {
+    "M1": {
+      "name": "核心玩法 MVP",
+      "subtasks": {
+        "M1-1": {
+          "status": "done",
+          "name": "Match3 消除系统",
+          "owner": "Orion",
+          "doneAt": "2026-05-12"
+        },
+        "M1-2": {
+          "status": "done",
+          "name": "卡牌系统 MVP",
+          "owner": "Orion",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/Gameplay/Shared/Piece.cs",
+            "Assets/_Game/Gameplay/CardSystem/CardData.cs",
+            "Assets/_Game/Gameplay/CardSystem/HandManager.cs",
+            "Assets/_Game/Gameplay/CardSystem/CardExecutor.cs"
+          ]
+        },
+        "M1-6": {
+          "status": "done",
+          "name": "UI/UX原型设计",
+          "owner": "Artoria",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/UI/CanvasLayout.cs",
+            "Assets/_Game/UI/CardPanelUI.cs",
+            "Assets/_Game/UI/BoardUI.cs",
+            "Assets/_Game/UI/ShopUI.cs",
+            "Assets/_Game/UI/HUDUI.cs"
+          ]
+        },
+        "M1-3": {
+          "status": "done",
+          "name": "消除×卡牌双向联动",
+          "owner": "Orion",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/Gameplay/BattleFlowManager.cs",
+            "Assets/_Game/Gameplay/BidirectionalLinker.cs",
+            "Assets/_Game/Gameplay/ComboManager.cs"
+          ]
+        },
+        "M1-8": {
+          "status": "done",
+          "name": "Chapter1 可运行Demo版本",
+          "owner": "Orion",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/GameLauncher.cs",
+            "Assets/_Game/Gameplay/LevelConfig.cs",
+            "README.md"
+          ],
+          "notes": "整合所有模块，创建Chapter1-1可运行Demo。GameLauncher作为入口初始化全部子系统，LevelConfig定义暗影猎手敌人配置（HP=15, ATK=2），BattleFlowManager新增LoadLevelConfig/HandleCellClick/HandlePlayCard方法。"
+        }
+      }
+    },
+    "M2": {
+      "name": "Battle Flow",
+      "subtasks": {
+        "M2-2": {
+          "status": "done",
+          "name": "5个Boss机制完整实现",
+          "owner": "Orion",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/Gameplay/Boss/BossBase.cs",
+            "Assets/_Game/Gameplay/Boss/BossGuardian.cs",
+            "Assets/_Game/Gameplay/Boss/BossMirror.cs",
+            "Assets/_Game/Gameplay/Boss/BossHourglass.cs",
+            "Assets/_Game/Gameplay/Boss/BossSpider.cs"
+          ],
+          "notes": "BossBase: 两阶段切换/血条/特殊攻击队列/回合Tick。BossGuardian: 冻结格(2→4格)/裂隙影召唤/护盾壁垒/狂暴。BossMirror: 镜像能量/镜花水月复制/碎裂镜像反噬/镜影步闪避/镜像洪流。BossHourglass: 时间沙漏/时间逆转/瞬间加速/时间停滞/终焉时刻。BossSpider: 蛛网标记叠层/定身/蜃楼幻象召唤/终焉狂暴。"
+        }
+      }
+    },
+    "M3": {
+      "name": "UI/UX",
+      "subtasks": {}
+    }
+  }
+}

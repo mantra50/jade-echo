@@ -1,0 +1,21 @@
+{
+  "cardId": "card-017",
+  "nameCn": "卡牌回收",
+  "nameEn": "Card Recall",
+  "type": "功能",
+  "energyCost": 0,
+  "rarity": "★★☆☆",
+  "palette": {
+    "primary": "#9370DB",
+    "secondary": "#8A2BE2",
+    "accent": "#E6E6FA",
+    "background": "#0D0818"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, elegant female court scholar in flowing purple and silver brocade robes with crane and cloud embroidery, standing with one arm gracefully extended toward a floating ancient scroll that is unfurling and glowing with mystical purple light, other hand held to her chest in a gesture of focused concentration, hair in elaborate traditional Chinese updo hairstyle with silver hairpins and purple jade ornaments, serene intelligent expression with slightly narrowed eyes of deep focus, multiple floating card silhouettes made of purple light energy flying back toward her like homing pigeons returning home, an antique chinese wooden card discard pile to her left with one card already lifting off and rejoining the flow, traditional chinese study room background with bamboo bookshelf scrolls and a small koi fish pond with curved bridge, purple silver white and deep indigo palette, mystical purple glow emanating from the recalled cards creating light trails, ink brush linework with purple energy stream effects, Chinese mythology scholarly magic style, cartoon realism with card flight trajectory effects, hyperdetailed brocade fabric patterns and scroll calligraphy textures, 4k ultra detailed illustration",
+  "effects": [
+    "卡牌化为紫光流光飞回手中",
+    "古风卷轴展开，卡牌排列归位",
+    "书房典雅背景，鲤鱼池塘"
+  ],
+  "notes": "功能类·全体·回收弃牌；紫光卡牌归位为核心视觉，古风卷轴元素体现回收主题"
+}

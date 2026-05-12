@@ -1,0 +1,21 @@
+{
+  "cardId": "card-008",
+  "nameCn": "磐石壁垒",
+  "nameEn": "Stone Fortress",
+  "type": "防御",
+  "energyCost": 25,
+  "rarity": "★★☆☆",
+  "palette": {
+    "primary": "#8B4513",
+    "secondary": "#A0522D",
+    "accent": "#DEB887",
+    "background": "#0E0A06"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, young male swordsman mid-transformation with golden dragon spirit, half his body covered in radiant golden dragon scales with glowing seams where human skin transitions to scaled flesh, elegant jade-green dragon horns emerging from his hair, one hand gripping his sheathed sword now vibrating with dragon energy, flowing martial artist robes torn and reforming with dragon scale patterns and flowing mane-like fur collar, fierce determined eyes now partially glowing with dragon spirit, dark storm mountain peak background with lightning crackling behind him, golden amber deep red and midnight blue palette, dramatic lightning-illuminated backlighting, ink wash heavy clouds swirling behind the figure, Chinese xianxia dragon fusion style, cartoon realism with luminous dragon scale textures, hyperdetailed scale gradient transition from human skin to armored dragon hide, 4k ultra detailed illustration",
+  "effects": [
+    "龙鳞渐变覆盖半身，金色龙角生长",
+    "巨岩屏障从地面升起，古风岩石纹理",
+    "风暴山顶背景，雷电照亮轮廓"
+  ],
+  "notes": "防御类·单体·80护盾2回合；龙魂觉醒形态，岩石壁垒与龙气并存"
+}

@@ -1,0 +1,21 @@
+{
+  "cardId": "card-019",
+  "nameCn": "绝境逢生",
+  "nameEn": "Last Stand",
+  "type": "功能",
+  "energyCost": 0,
+  "rarity": "★★★☆",
+  "palette": {
+    "primary": "#FF6347",
+    "secondary": "#FF4500",
+    "accent": "#FFD700",
+    "background": "#1C0805"
+  },
+  "portraitPrompt": "Oriental fantasy card art, 7.5 heads tall, wounded warrior king kneeling on one knee on scorched battlefield about to collapse, his magnificent golden and crimson dragon scaled battle armor cracked and broken in multiple places with sparks of dying flames still flickering in the cracks, one fist slammed into the ground in defiance holding up his body from total collapse, broken legendary sword embedded in stone ground in front of him, massive phoenix spirit of golden fire rising rebirth flames erupting from his back in dramatic upward explosion of feathers and fire, his tattered red battle banner with dragon emblem fluttering behind him, intense defiant expression with eyes squeezed shut teeth clenched gritting through pain, surrounded by the bodies of fallen enemies and shattered weapons, dramatic upward diagonal composition with the phoenix and fire representing rebirth breaking upward, in the distance a golden sunrise breaking through dark storm clouds representing hope, orange crimson gold and charcoal black palette, intense dramatic rim lighting from phoenix flames creating silhouette effect, ink splatter effects of battle damage and fire sparks, Chinese mythology dying king reborn style, cartoon realism with phoenix flame rebirth effects, hyperdetailed cracked armor textures and individual flame feather patterns, 4k ultra detailed illustration",
+  "effects": [
+    "金色火焰凤凰从背后涅槃重生",
+    "破碎铠甲迸发火花，王者不屈姿态",
+    "战场废墟背景，远处金色日出"
+  ],
+  "notes": "功能类·高阶·血量≤20时使用；凤凰涅槃重生为核心视觉，绝境逆转的史诗感"
+}
