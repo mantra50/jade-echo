@@ -142,6 +142,16 @@
             "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"
           ],
           "notes": "5个Chapter2敌人：裂隙幽灵（护盾叠加）、裂隙游猎者（召唤流）、暴击裂隙兽（暴击流）、裂隙巨兽（HP共享）、裂隙领航者（护盾+召唤混合）。同步输出GDD v1.2（Ch2-5故事大纲+敌人类型+卡牌调整）。"
+        },
+        "M2-4": {
+          "status": "done",
+          "name": "卡牌数据审查（manifest vs numbers 对齐）",
+          "owner": "Kairos",
+          "doneAt": "2026-05-13",
+          "files": [
+            "design-output/card-audit-report.md"
+          ],
+          "notes": "发现两套卡池体系完全不同（manifest 20张东方古风 vs numbers 28张暗影系），卡名/类型/稀有度/能耗全部不对应。card-004配图（玄武护卫）与数据（穿云箭·攻击）存在错位。Chapter2-5敌人数值曲线经验证整体合理。需Artoria和Orion确认最终卡池方案（合并或映射）。"
         }
       }
     },
