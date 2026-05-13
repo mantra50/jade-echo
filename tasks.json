@@ -85,10 +85,24 @@
           "notes": "整合所有模块，创建Chapter1-1可运行Demo。GameLauncher作为入口初始化全部子系统，LevelConfig定义暗影猎手敌人配置（HP=15, ATK=2），BattleFlowManager新增LoadLevelConfig/HandleCellClick/HandlePlayCard方法。"
         },
         "M1-9": {
-          "status": "pending",
+          "status": "done",
           "name": "消除伤害规则与卡牌效果数值细化",
-          "owner": "Orion",
-          "notes": "PiecesPerDamage 每消除N个=1点伤害（当前3）；卡牌效果具体数值（伤害值/范围/能耗）需与CardData对齐；Boss两阶段切换触发点（HP≤50%）验证"
+          "owner": "Kairos",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_2.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_3.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_4.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_5.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_6.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_7.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_8.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_9.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_10.cs",
+            "Assets/_Game/Gameplay/Boss/Boss数值表.md",
+            "design-output/card-numbers-v2.md"
+          ],
+          "notes": "Chapter1 第2-10关敌人完整配置；5个Boss（含2个准Boss+3个真正Boss）两阶段完整数值表；28张卡牌（含4级稀有度）完整数值表。"
         }
       }
     },
