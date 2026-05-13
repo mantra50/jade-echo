@@ -152,6 +152,17 @@
             "design-output/card-audit-report.md"
           ],
           "notes": "发现两套卡池体系完全不同（manifest 20张东方古风 vs numbers 28张暗影系），卡名/类型/稀有度/能耗全部不对应。card-004配图（玄武护卫）与数据（穿云箭·攻击）存在错位。Chapter2-5敌人数值曲线经验证整体合理。需Artoria和Orion确认最终卡池方案（合并或映射）。"
+        },
+        "M2-5": {
+          "status": "done",
+          "name": "卡牌美术规范文档（20张卡 AI 提示词 + 色值规范）",
+          "owner": "Artoria",
+          "doneAt": "2026-05-13",
+          "files": [
+            "ArtDocuments/card-asset-manifest-v2.md",
+            "ArtDocuments/card-color-spec.md"
+          ],
+          "notes": "card-asset-manifest-v2.md：20张卡完整AI提示词（card-020天眼通截断部分已补全）。card-color-spec.md：四类型精确色值（Attack=E63946朱红/Defense=457B9D藏青/Transform=9B5DE5紫藤/Utility=2A9D8F青绿）+ 每类型AI颜色关键词列表 + 标准负面提示词。目录清理：旧card-asset-manifest.md→v1作废，删除所有旧card-XXX.json，CardAssets/目录建立。"
         }
       }
     },
