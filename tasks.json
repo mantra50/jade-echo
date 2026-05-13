@@ -47,11 +47,16 @@
           "notes": "完整战斗闭环：消除触发Boss伤害(pieces/piecesPerDamage)→Boss回合Tick普攻→玩家掉血事件→BattleFinished。Boss绑定通过SetBoss()注入，RunSettlement中整合Boss.Tick()和普攻处理。GridManager扩展至8×8。ECardType枚举新增，CardData.CardType类型统一为ECardType。CardUI组件新建。"
         },
         "M1-5": {
-          "status": "pending",
+          "status": "done",
           "name": "UI事件总线对接（Artoria负责）",
           "owner": "Artoria",
-          "depends": ["M1-4"],
-          "notes": "HUDUI/BoardUI/CardPanelUI 订阅 BattleFlowManager 事件，实现 api-spec.md 中所有 UI 行为"
+          "doneAt": "2026-05-13",
+          "files": [
+            "art-output/ui-integration.md",
+            "art-output/card-portrait-prompt.md",
+            "art-output/effect-animation.md"
+          ],
+          "notes": "UI对接方案输出（含所有动画规格）+ 卡牌立绘AI生图提示词（4类卡牌+Boss专属）+ 特效动画描述（含时长/缓动曲线/视觉元素）。BoardUI→GridManager/CardPanelUI→HandManager/HUDUI→BattleFlowManager完整对接方案。"
         },
         "M1-6": {
           "status": "done",
