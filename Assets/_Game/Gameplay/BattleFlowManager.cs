@@ -22,6 +22,7 @@ namespace CardMatch.Gameplay
         private readonly CardExecutor    _cardExecutor;
         private readonly HandManager     _hand;
         private readonly ComboManager     _combo;
+        private Boss.BossBase _boss;
 
         // ── 状态 ──────────────────────────────────────────────────
         private int _turnNumber;
@@ -45,6 +46,10 @@ namespace CardMatch.Gameplay
         public event Action<int, int>      OnTurnEnded;          // (turn, energyProduced)
         public event Action<int>           OnPlayerDamaged;      // damage amount
         public event Action                 OnBattleFinished;
+        public event Action<int, int> OnEnemyHpChanged;   // (currentHp, maxHp)
+        public event Action OnBossPhaseChanged;
+        public event Action<int> OnBossShieldChanged;
+        public event Action<int> OnEnemyAttacked;   // (damage)
         public event Action<int, List<Piece>> OnEliminationOccurred; // (comboCount, pieces)
         public event Action<CardData, List<Piece>> OnCardEffectTriggered;
 
@@ -60,6 +65,21 @@ namespace CardMatch.Gameplay
         /// <summary>当前玩家能量</summary>
         public int PlayerEnergy => _playerEnergy;
 
+        // ── Boss 绑定 ──────────────────────────────────────────────
+        /// <summary>绑定 Boss 实例（在场景加载时由 GameLauncher 注入）</summary>
+        public void SetBoss(Boss.BossBase boss)
+        {
+            if (_boss != null)
+            {
+                _boss.OnBossDied -= HandleBossDied;
+            }
+            _boss = boss;
+            if (_boss != null)
+            {
+                _boss.OnBossDied += HandleBossDied;
+            }
+        }
+
         // ── 构造 ──────────────────────────────────────────────────
         public BattleFlowManager(
             GridManager        grid,
@@ -68,7 +88,8 @@ namespace CardMatch.Gameplay
             GravitySystem      gravity,
             CardExecutor       cardExecutor,
             HandManager        hand,
-            ComboManager       combo)
+            ComboManager       combo,
+            Boss.BossBase      boss = null)
         {
             _grid         = grid;
             _matcher      = matcher;
@@ -77,6 +98,7 @@ namespace CardMatch.Gameplay
             _cardExecutor = cardExecutor;
             _hand         = hand;
             _combo        = combo;
+            _boss         = boss;
 
             // 订阅级联事件用于双向联动
             _cascade.OnPiecesEliminated  += HandlePiecesEliminated;
@@ -85,6 +107,12 @@ namespace CardMatch.Gameplay
 
             _combo.OnSparkCharged        += HandleSparkCharged;
             _combo.OnUltimateActivated   += HandleUltimateActivated;
+
+            // 订阅 Boss 事件
+            if (_boss != null)
+            {
+                _boss.OnBossDied         += HandleBossDied;
+            }
         }
 
         // ── 公开 API ─────────────────────────────────────────────
@@ -340,14 +368,37 @@ namespace CardMatch.Gameplay
 
             OnTurnEnded?.Invoke(_turnNumber, produced);
 
+            // ── Boss 回合：普攻 ─────────────────────────────────
+            if (_boss != null && !_boss.IsDead)
+            {
+                // 处理特殊攻击队列
+                bool needPause = _boss.Tick(0);
+
+                // 普攻伤害应用给玩家
+                int bossDmg = _boss.Attack;
+                if (bossDmg > 0)
+                {
+                    _playerHp = Mathf.Max(0, _playerHp - bossDmg);
+                    OnPlayerDamaged?.Invoke(bossDmg);
+                    OnEnemyAttacked?.Invoke(bossDmg);
+                    Debug.Log($"[BattleFlow] Boss 回合攻击: 玩家受到 {bossDmg} 点伤害，剩余HP: {_playerHp}");
+                }
+
+                if (_playerHp <= 0)
+                {
+                    _battleActive = false;
+                    ChangePhase(BattlePhase.Idle);
+                    OnBattleFinished?.Invoke();
+                    return;
+                }
+            }
+
             // 回合数 +1，准备下一回合
             _turnNumber++;
             OnTurnStarted?.Invoke(_turnNumber);
 
             // 抽卡
             _hand.TryDrawCard();
-
-            // 伤害惩罚（回合超时未操作可在此扩展）
 
             ChangePhase(BattlePhase.PlayerInput);
         }
@@ -358,6 +409,17 @@ namespace CardMatch.Gameplay
         {
             // 通知 View 层播放消除特效
             OnEliminationOccurred?.Invoke(_combo.CurrentCombo, pieces);
+
+            // ── 消除 → Boss 伤害 ──────────────────────────────
+            if (_boss != null && !_boss.IsDead && pieces.Count > 0)
+            {
+                int damage = pieces.Count / _piecesPerDamage;
+                if (damage > 0)
+                {
+                    _boss.TakeDamage(damage);
+                    Debug.Log($"[BattleFlow] 消除{pieces.Count}个棋子，对Boss造成 {damage} 点伤害");
+                }
+            }
 
             // 通知双向联动器：消除 → 卡牌触发
             BidirectionalLinker.Instance.OnPiecesEliminated(pieces, _matcher, _grid);
@@ -382,6 +444,14 @@ namespace CardMatch.Gameplay
         private void HandleUltimateActivated(CardData card)
         {
             Debug.Log($"[BattleFlow] Ultimate activated: {card.CardName}");
+        }
+
+        private void HandleBossDied()
+        {
+            Debug.Log("[BattleFlow] Boss 被击败！");
+            _battleActive = false;
+            ChangePhase(BattlePhase.Idle);
+            OnBattleFinished?.Invoke();
         }
 
         // ── 辅助 ─────────────────────────────────────────────────

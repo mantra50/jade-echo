@@ -33,7 +33,7 @@ namespace CardMatch.Gameplay.CardSystem
         public string CardName;
 
         [Tooltip("卡牌类型")]
-        public CardType CardType;
+        public ECardType CardType;
 
         [Tooltip("能耗点数")]
         public int EnergyCost;

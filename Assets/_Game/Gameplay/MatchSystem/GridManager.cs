@@ -5,12 +5,12 @@ using UnityEngine;
 namespace CardMatch.Gameplay.MatchSystem
 {
     /// <summary>
-    /// 6×6 棋盘管理器 — 负责棋盘初始化、宝石生成、格子状态查询
+    /// 8×8 棋盘管理器 — 负责棋盘初始化、宝石生成、格子状态查询
     /// </summary>
     public class GridManager
     {
-        public const int Width  = 6;
-        public const int Height = 6;
+        public const int Width  = 8;
+        public const int Height = 8;
 
         private Piece[,] _grid = new Piece[Width, Height];
 

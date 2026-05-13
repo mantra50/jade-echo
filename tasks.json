@@ -22,6 +22,37 @@
             "Assets/_Game/Gameplay/CardSystem/CardExecutor.cs"
           ]
         },
+        "M1-3": {
+          "status": "done",
+          "name": "消除×卡牌双向联动",
+          "owner": "Orion",
+          "doneAt": "2026-05-12",
+          "files": [
+            "Assets/_Game/Gameplay/BattleFlowManager.cs",
+            "Assets/_Game/Gameplay/BidirectionalLinker.cs",
+            "Assets/_Game/Gameplay/ComboManager.cs"
+          ]
+        },
+        "M1-4": {
+          "status": "done",
+          "name": "战斗系统整合（消除→伤害→Boss响应→敌人攻击）",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/Gameplay/BattleFlowManager.cs",
+            "Assets/_Game/Gameplay/CardSystem/ECardType.cs",
+            "Assets/_Game/Gameplay/MatchSystem/GridManager.cs",
+            "Assets/_Game/UI/CardUI.cs"
+          ],
+          "notes": "完整战斗闭环：消除触发Boss伤害(pieces/piecesPerDamage)→Boss回合Tick普攻→玩家掉血事件→BattleFinished。Boss绑定通过SetBoss()注入，RunSettlement中整合Boss.Tick()和普攻处理。GridManager扩展至8×8。ECardType枚举新增，CardData.CardType类型统一为ECardType。CardUI组件新建。"
+        },
+        "M1-5": {
+          "status": "pending",
+          "name": "UI事件总线对接（Artoria负责）",
+          "owner": "Artoria",
+          "depends": ["M1-4"],
+          "notes": "HUDUI/BoardUI/CardPanelUI 订阅 BattleFlowManager 事件，实现 api-spec.md 中所有 UI 行为"
+        },
         "M1-6": {
           "status": "done",
           "name": "UI/UX原型设计",
@@ -35,16 +66,11 @@
             "Assets/_Game/UI/HUDUI.cs"
           ]
         },
-        "M1-3": {
-          "status": "done",
-          "name": "消除×卡牌双向联动",
+        "M1-7": {
+          "status": "pending",
+          "name": "棋盘8×8扩展（GridManager + MatchDetector）",
           "owner": "Orion",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/Gameplay/BattleFlowManager.cs",
-            "Assets/_Game/Gameplay/BidirectionalLinker.cs",
-            "Assets/_Game/Gameplay/ComboManager.cs"
-          ]
+          "notes": "Demo 6×6 → 正式版 8×8，BoardUI已支持COLS=8/ROWS=7，GridManager已更新Width=8/Height=8，需验证MatchDetector/GravitySystem与新尺寸兼容"
         },
         "M1-8": {
           "status": "done",
@@ -57,6 +83,12 @@
             "README.md"
           ],
           "notes": "整合所有模块，创建Chapter1-1可运行Demo。GameLauncher作为入口初始化全部子系统，LevelConfig定义暗影猎手敌人配置（HP=15, ATK=2），BattleFlowManager新增LoadLevelConfig/HandleCellClick/HandlePlayCard方法。"
+        },
+        "M1-9": {
+          "status": "pending",
+          "name": "消除伤害规则与卡牌效果数值细化",
+          "owner": "Orion",
+          "notes": "PiecesPerDamage 每消除N个=1点伤害（当前3）；卡牌效果具体数值（伤害值/范围/能耗）需与CardData对齐；Boss两阶段切换触发点（HP≤50%）验证"
         }
       }
     },
