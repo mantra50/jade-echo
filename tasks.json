@@ -72,10 +72,11 @@
           ]
         },
         "M1-7": {
-          "status": "pending",
+          "status": "done",
           "name": "棋盘8×8扩展（GridManager + MatchDetector）",
           "owner": "Orion",
-          "notes": "Demo 6×6 → 正式版 8×8，BoardUI已支持COLS=8/ROWS=7，GridManager已更新Width=8/Height=8，需验证MatchDetector/GravitySystem与新尺寸兼容"
+          "doneAt": "2026-05-13",
+          "notes": "已验证：GridManager.Width=8/Height=8，MatchDetector/GravitySystem/CascadeController 均通过 GridManager.Width/Height 引用棋盘尺寸，无需额外修改。BoardUI COLS=8/ROWS=7（7行含3行敌人区+4行玩家区）。"
         },
         "M1-8": {
           "status": "done",
@@ -132,7 +133,48 @@
     },
     "M3": {
       "name": "UI/UX",
-      "subtasks": {}
+      "subtasks": {
+        "M3-1": {
+          "status": "done",
+          "name": "Boss HP条动画系统",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/BossHPUI.cs"
+          ],
+          "notes": "Boss血条平滑消耗动画（Displayed slider延迟跟随）+ 受击抖动（Perlin噪声）+ 颜色渐变（高/中/低）+ 护盾显示 + 相位切换 + 死亡动画。Singleton模式，与BattleFlowManager.OnEnemyHpChanged/OnBossPhaseChanged/OnBossShieldChanged对接。"
+        },
+        "M3-2": {
+          "status": "done",
+          "name": "伤害数字弹出",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/DamagePopup.cs"
+          ],
+          "notes": "伤害数字弹出系统，支持Damage/Crit/Heal/Energy/BossDamage五种类型，弹性入场+上浮+淡出缩小，动效复用池（Pool）优化。BattleUIConnector驱动BattleFlowManager事件到DamagePopup。"
+        },
+        "M3-3": {
+          "status": "done",
+          "name": "战斗结算界面",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/SettlementUI.cs"
+          ],
+          "notes": "胜负弹窗，支持胜利/失败两种结果，入场动画（EaseOutBack缩放）+ 按钮延迟入场，统计显示（回合/伤害/连消/卡牌），三个按钮（重试/下一关/主菜单）。事件驱动：BattleFlowManager.OnBattleFinished。"
+        },
+        "M3-4": {
+          "status": "done",
+          "name": "UI事件总线桥接",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/BattleUIConnector.cs"
+          ],
+          "notes": "BattleFlowManager事件到各UI面板的桥接器。处理OnEnemyHpChanged→BossHPUI+DamagePopup，OnPlayerDamaged→HUDUI+DamagePopup，OnEliminationOccurred→BoardUI.PlayMatchVFX+DamagePopup，OnBattleFinished→SettlementUI胜负判断。统计本场战斗总伤害/最高连消/出牌数。"
+        }
+      }
     }
   }
 }
