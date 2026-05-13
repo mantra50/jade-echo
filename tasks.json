@@ -115,6 +115,20 @@
     "M2": {
       "name": "Battle Flow",
       "subtasks": {
+        "M2-3": {
+          "status": "done",
+          "name": "Chapter2 敌人设计（5个新敌人配置）",
+          "owner": "Kairos",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_11.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_12.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_13.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_14.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"
+          ],
+          "notes": "5个Chapter2敌人：裂隙幽灵（护盾叠加）、裂隙游猎者（召唤流）、暴击裂隙兽（暴击流）、裂隙巨兽（HP共享）、裂隙领航者（护盾+召唤混合）。同步输出GDD v1.2（Ch2-5故事大纲+敌人类型+卡牌调整）。"
+        },
         "M2-2": {
           "status": "done",
           "name": "5个Boss机制完整实现",
