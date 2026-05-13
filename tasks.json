@@ -109,6 +109,18 @@
             "design-output/card-numbers-v2.md"
           ],
           "notes": "Chapter1 第2-10关敌人完整配置；5个Boss（含2个准Boss+3个真正Boss）两阶段完整数值表；28张卡牌（含4级稀有度）完整数值表。"
+        },
+        "M1-Alpha": {
+          "status": "done",
+          "name": "Chapter1-1 可运行版本（Alpha）",
+          "owner": "Orion",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/GameLauncher.cs",
+            "Assets/_Game/Gameplay/CardSystem/HandManager.cs",
+            "README.md"
+          ],
+          "notes": "完整战斗闭环验证：消除→Boss伤害→Boss普攻→玩家掉血→BattleFinished。GameLauncher重写：主菜单入口、CreateChapter1_1Enemy()、StartChapter1Level1()、DebugRunBattleSimulation()。HandManager新增DrawInitialCards()。确认GridManager 8×8、MatchDetector 3/4/L/T检测、CascadeController连锁、BidirectionalLinker双向联动、BossBase.SetBoss()注入全部正常可用。"
         }
       }
     },

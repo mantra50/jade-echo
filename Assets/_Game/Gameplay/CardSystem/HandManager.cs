@@ -35,6 +35,13 @@ namespace CardMatch.Gameplay.CardSystem
             OnEnergyChanged?.Invoke(_currentEnergy);
         }
 
+        /// <summary>初始抽 N 张卡（用于战斗开始）</summary>
+        public void DrawInitialCards(int count)
+        {
+            for (int i = 0; i < count; i++)
+                TryDrawCard();
+        }
+
         /// <summary>抽一张卡（从牌组 SO 取，未实现抽牌逻辑时用随机卡代替）</summary>
         public bool TryDrawCard()
         {
