@@ -21,7 +21,7 @@ namespace CardMatch.Gameplay
     ///   - 每消除3个暗影元素，对敌人造成1点伤害
     ///
     /// 敌人：暗影猎手 (Shadow Hunter)
-    ///   - HP: 15
+    ///   - HP: 12
     ///   - 攻击方式: 每回合对玩家造成2点伤害
     ///   - 特性: 无特殊技能
     ///
@@ -39,7 +39,7 @@ namespace CardMatch.Gameplay
 
         // ── 敌人配置 ────────────────────────────────────────────
         [Header("敌人配置 — 暗影猎手")]
-        [SerializeField] private int    _enemyHp          = 15;
+        [SerializeField] private int    _enemyHp          = 12;  // Alpha版教程关简化
         [SerializeField] private int    _enemyAttack       = 2;
         [SerializeField] private int    _enemyShield       = 0;
         [SerializeField] private string  _enemyName         = "暗影猎手";
@@ -102,7 +102,7 @@ namespace CardMatch.Gameplay
             config._levelId          = "ch1_001";
             config._chapterId        = "ch1";
             config._levelIndex       = 1;
-            config._enemyHp          = 15;
+            config._enemyHp          = 12;  // Alpha版教程关简化
             config._enemyAttack      = 2;
             config._enemyShield      = 0;
             config._enemyName        = "暗影猎手";
