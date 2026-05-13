@@ -115,20 +115,6 @@
     "M2": {
       "name": "Battle Flow",
       "subtasks": {
-        "M2-3": {
-          "status": "done",
-          "name": "Chapter2 敌人设计（5个新敌人配置）",
-          "owner": "Kairos",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_11.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_12.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_13.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_14.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"
-          ],
-          "notes": "5个Chapter2敌人：裂隙幽灵（护盾叠加）、裂隙游猎者（召唤流）、暴击裂隙兽（暴击流）、裂隙巨兽（HP共享）、裂隙领航者（护盾+召唤混合）。同步输出GDD v1.2（Ch2-5故事大纲+敌人类型+卡牌调整）。"
-        },
         "M2-2": {
           "status": "done",
           "name": "5个Boss机制完整实现",
@@ -142,6 +128,20 @@
             "Assets/_Game/Gameplay/Boss/BossSpider.cs"
           ],
           "notes": "BossBase: 两阶段切换/血条/特殊攻击队列/回合Tick。BossGuardian: 冻结格(2→4格)/裂隙影召唤/护盾壁垒/狂暴。BossMirror: 镜像能量/镜花水月复制/碎裂镜像反噬/镜影步闪避/镜像洪流。BossHourglass: 时间沙漏/时间逆转/瞬间加速/时间停滞/终焉时刻。BossSpider: 蛛网标记叠层/定身/蜃楼幻象召唤/终焉狂暴。"
+        },
+        "M2-3": {
+          "status": "done",
+          "name": "Chapter2 敌人设计（5个新敌人配置）",
+          "owner": "Kairos",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_11.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_12.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_13.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_14.cs",
+            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"
+          ],
+          "notes": "5个Chapter2敌人：裂隙幽灵（护盾叠加）、裂隙游猎者（召唤流）、暴击裂隙兽（暴击流）、裂隙巨兽（HP共享）、裂隙领航者（护盾+召唤混合）。同步输出GDD v1.2（Ch2-5故事大纲+敌人类型+卡牌调整）。"
         }
       }
     },
@@ -187,6 +187,38 @@
             "Assets/_Game/UI/BattleUIConnector.cs"
           ],
           "notes": "BattleFlowManager事件到各UI面板的桥接器。处理OnEnemyHpChanged→BossHPUI+DamagePopup，OnPlayerDamaged→HUDUI+DamagePopup，OnEliminationOccurred→BoardUI.PlayMatchVFX+DamagePopup，OnBattleFinished→SettlementUI胜负判断。统计本场战斗总伤害/最高连消/出牌数。"
+        },
+        "M3-5": {
+          "status": "done",
+          "name": "消除特效集成",
+          "owner": "Artoria",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/Gameplay/MatchSystem/MatchVFXManager.cs"
+          ],
+          "notes": "MatchVFXManager：EMatchType枚举（Normal/FourLine/LShape/TShape/CrossUltimate）+ 5种VFX预制体接口 + 占位符颜色块系统（无预制体时使用）+ PlayEliminationVFX/PlayDamagePopup/PlayHealPopup/PlayEnergyBoost + CascadeVFXBinder静态扩展方法自动绑定到CascadeController.OnPiecesEliminated。参考art-output/effect-animation.md实现所有缓动曲线和时长规格。"
+        },
+        "M3-6": {
+          "status": "done",
+          "name": "商店UI原型",
+          "owner": "Artoria",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/ShopView.cs"
+          ],
+          "notes": "ShopView：GridLayout卡片布局（4列）+ Currency显示（🪙+金色）+ BuyButton状态（可购买绿色/不可购买灰色）+ 卡牌入场动画（ease-out从下方滑入）+ RefreshCards/SetCurrency公共API + ShopCardData数据结构（CardName/Price/ArtSprite/Rarity/Attack/Defense/Description）。对接ShopUI现有结构。"
+        },
+        "M3-7": {
+          "status": "done",
+          "name": "存档/读档UI",
+          "owner": "Artoria",
+          "doneAt": "2026-05-13",
+          "files": [
+            "Assets/_Game/UI/SlotUI.cs",
+            "Assets/_Game/SaveSystem/SlotData.cs",
+            "Assets/_Game/SaveSystem/SimpleSaveManager.cs"
+          ],
+          "notes": "SlotUI：3个存档槽（BuildSlots + SlotItem类）+ 空槽/已填充槽显示 + 存/读/删除按钮 + 槽位入场动画（spring弹性缩放）+ Show(saveMode)/Hide/RefreshAllSlots公共API。对接CardMatch.SaveSystem.SlotData（Load/Save/Delete/Exists）。SimpleSaveManager协调游戏状态保存与加载。占位符SaveSystem（JSON file persistence）。"
         }
       }
     }
