@@ -4,255 +4,40 @@
     "M1": {
       "name": "核心玩法 MVP",
       "subtasks": {
-        "M1-1": {
-          "status": "done",
-          "name": "Match3 消除系统",
-          "owner": "Orion",
-          "doneAt": "2026-05-12"
-        },
-        "M1-2": {
-          "status": "done",
-          "name": "卡牌系统 MVP",
-          "owner": "Orion",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/Gameplay/Shared/Piece.cs",
-            "Assets/_Game/Gameplay/CardSystem/CardData.cs",
-            "Assets/_Game/Gameplay/CardSystem/HandManager.cs",
-            "Assets/_Game/Gameplay/CardSystem/CardExecutor.cs"
-          ]
-        },
-        "M1-3": {
-          "status": "done",
-          "name": "消除×卡牌双向联动",
-          "owner": "Orion",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/Gameplay/BattleFlowManager.cs",
-            "Assets/_Game/Gameplay/BidirectionalLinker.cs",
-            "Assets/_Game/Gameplay/ComboManager.cs"
-          ]
-        },
-        "M1-4": {
-          "status": "done",
-          "name": "战斗系统整合（消除→伤害→Boss响应→敌人攻击）",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/Gameplay/BattleFlowManager.cs",
-            "Assets/_Game/Gameplay/CardSystem/ECardType.cs",
-            "Assets/_Game/Gameplay/MatchSystem/GridManager.cs",
-            "Assets/_Game/UI/CardUI.cs"
-          ],
-          "notes": "完整战斗闭环：消除触发Boss伤害(pieces/piecesPerDamage)→Boss回合Tick普攻→玩家掉血事件→BattleFinished。Boss绑定通过SetBoss()注入，RunSettlement中整合Boss.Tick()和普攻处理。GridManager扩展至8×8。ECardType枚举新增，CardData.CardType类型统一为ECardType。CardUI组件新建。"
-        },
-        "M1-5": {
-          "status": "done",
-          "name": "UI事件总线对接（Artoria负责）",
-          "owner": "Artoria",
-          "doneAt": "2026-05-13",
-          "files": [
-            "art-output/ui-integration.md",
-            "art-output/card-portrait-prompt.md",
-            "art-output/effect-animation.md"
-          ],
-          "notes": "UI对接方案输出（含所有动画规格）+ 卡牌立绘AI生图提示词（4类卡牌+Boss专属）+ 特效动画描述（含时长/缓动曲线/视觉元素）。BoardUI→GridManager/CardPanelUI→HandManager/HUDUI→BattleFlowManager完整对接方案。"
-        },
-        "M1-6": {
-          "status": "done",
-          "name": "UI/UX原型设计",
-          "owner": "Artoria",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/UI/CanvasLayout.cs",
-            "Assets/_Game/UI/CardPanelUI.cs",
-            "Assets/_Game/UI/BoardUI.cs",
-            "Assets/_Game/UI/ShopUI.cs",
-            "Assets/_Game/UI/HUDUI.cs"
-          ]
-        },
-        "M1-7": {
-          "status": "done",
-          "name": "棋盘8×8扩展（GridManager + MatchDetector）",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "notes": "已验证：GridManager.Width=8/Height=8，MatchDetector/GravitySystem/CascadeController 均通过 GridManager.Width/Height 引用棋盘尺寸，无需额外修改。BoardUI COLS=8/ROWS=7（7行含3行敌人区+4行玩家区）。"
-        },
-        "M1-8": {
-          "status": "done",
-          "name": "Chapter1 可运行Demo版本",
-          "owner": "Orion",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/GameLauncher.cs",
-            "Assets/_Game/Gameplay/LevelConfig.cs",
-            "README.md"
-          ],
-          "notes": "整合所有模块，创建Chapter1-1可运行Demo。GameLauncher作为入口初始化全部子系统，LevelConfig定义暗影猎手敌人配置（HP=15, ATK=2），BattleFlowManager新增LoadLevelConfig/HandleCellClick/HandlePlayCard方法。"
-        },
-        "M1-9": {
-          "status": "done",
-          "name": "消除伤害规则与卡牌效果数值细化",
-          "owner": "Kairos",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_2.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_3.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_4.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_5.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_6.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_7.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_8.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_9.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_10.cs",
-            "Assets/_Game/Gameplay/Boss/Boss数值表.md",
-            "design-output/card-numbers-v2.md"
-          ],
-          "notes": "Chapter1 第2-10关敌人完整配置；5个Boss（含2个准Boss+3个真正Boss）两阶段完整数值表；28张卡牌（含4级稀有度）完整数值表。"
-        },
-        "M1-Alpha": {
-          "status": "done",
-          "name": "Chapter1-1 可运行版本（Alpha）",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/GameLauncher.cs",
-            "Assets/_Game/Gameplay/CardSystem/HandManager.cs",
-            "README.md"
-          ],
-          "notes": "完整战斗闭环验证：消除→Boss伤害→Boss普攻→玩家掉血→BattleFinished。GameLauncher重写：主菜单入口、CreateChapter1_1Enemy()、StartChapter1Level1()、DebugRunBattleSimulation()。HandManager新增DrawInitialCards()。确认GridManager 8×8、MatchDetector 3/4/L/T检测、CascadeController连锁、BidirectionalLinker双向联动、BossBase.SetBoss()注入全部正常可用。"
-        }
+        "M1-1": { "status": "done", "name": "Match3 消除系统", "owner": "Orion", "doneAt": "2026-05-12" },
+        "M1-2": { "status": "done", "name": "卡牌系统 MVP", "owner": "Orion", "doneAt": "2026-05-12", "files": ["Assets/_Game/Gameplay/Shared/Piece.cs", "Assets/_Game/Gameplay/CardSystem/CardData.cs", "Assets/_Game/Gameplay/CardSystem/HandManager.cs", "Assets/_Game/Gameplay/CardSystem/CardExecutor.cs"] },
+        "M1-3": { "status": "done", "name": "消除×卡牌双向联动", "owner": "Orion", "doneAt": "2026-05-12", "files": ["Assets/_Game/Gameplay/BattleFlowManager.cs", "Assets/_Game/Gameplay/BidirectionalLinker.cs", "Assets/_Game/Gameplay/ComboManager.cs"] },
+        "M1-4": { "status": "done", "name": "战斗系统整合（消除→伤害→Boss响应→敌人攻击）", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/Gameplay/BattleFlowManager.cs", "Assets/_Game/Gameplay/CardSystem/ECardType.cs", "Assets/_Game/Gameplay/MatchSystem/GridManager.cs", "Assets/_Game/UI/CardUI.cs"], "notes": "完整战斗闭环：消除触发Boss伤害→Boss回合Tick普攻→玩家掉血事件→BattleFinished。" },
+        "M1-5": { "status": "done", "name": "UI事件总线对接（Artoria负责）", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["art-output/ui-integration.md", "art-output/card-portrait-prompt.md", "art-output/effect-animation.md"] },
+        "M1-6": { "status": "done", "name": "UI/UX原型设计", "owner": "Artoria", "doneAt": "2026-05-12", "files": ["Assets/_Game/UI/CanvasLayout.cs", "Assets/_Game/UI/CardPanelUI.cs", "Assets/_Game/UI/BoardUI.cs", "Assets/_Game/UI/ShopUI.cs", "Assets/_Game/UI/HUDUI.cs"] },
+        "M1-7": { "status": "done", "name": "棋盘8×8扩展（GridManager + MatchDetector）", "owner": "Orion", "doneAt": "2026-05-13", "notes": "GridManager.Width=8/Height=8，MatchDetector/GravitySystem/CascadeController 均通过 GridManager.Width/Height 引用棋盘尺寸。" },
+        "M1-8": { "status": "done", "name": "Chapter1 可运行Demo版本", "owner": "Orion", "doneAt": "2026-05-12", "files": ["Assets/_Game/GameLauncher.cs", "Assets/_Game/Gameplay/LevelConfig.cs", "README.md"] },
+        "M1-9": { "status": "done", "name": "消除伤害规则与卡牌效果数值细化", "owner": "Kairos", "doneAt": "2026-05-13", "files": ["Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_2.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_3.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_4.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_5.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_6.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_7.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_8.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_9.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch1_10.cs", "Assets/_Game/Gameplay/Boss/Boss数值表.md", "design-output/card-numbers-v2.md"] },
+        "M1-Alpha": { "status": "done", "name": "Chapter1-1 可运行版本（Alpha）", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/GameLauncher.cs", "Assets/_Game/Gameplay/CardSystem/HandManager.cs", "README.md"], "notes": "完整战斗闭环验证通过。" }
       }
     },
     "M2": {
       "name": "Battle Flow",
       "subtasks": {
-        "M2-2": {
-          "status": "done",
-          "name": "5个Boss机制完整实现",
-          "owner": "Orion",
-          "doneAt": "2026-05-12",
-          "files": [
-            "Assets/_Game/Gameplay/Boss/BossBase.cs",
-            "Assets/_Game/Gameplay/Boss/BossGuardian.cs",
-            "Assets/_Game/Gameplay/Boss/BossMirror.cs",
-            "Assets/_Game/Gameplay/Boss/BossHourglass.cs",
-            "Assets/_Game/Gameplay/Boss/BossSpider.cs"
-          ],
-          "notes": "BossBase: 两阶段切换/血条/特殊攻击队列/回合Tick。BossGuardian: 冻结格(2→4格)/裂隙影召唤/护盾壁垒/狂暴。BossMirror: 镜像能量/镜花水月复制/碎裂镜像反噬/镜影步闪避/镜像洪流。BossHourglass: 时间沙漏/时间逆转/瞬间加速/时间停滞/终焉时刻。BossSpider: 蛛网标记叠层/定身/蜃楼幻象召唤/终焉狂暴。"
-        },
-        "M2-3": {
-          "status": "done",
-          "name": "Chapter2 敌人设计（5个新敌人配置）",
-          "owner": "Kairos",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_11.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_12.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_13.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_14.cs",
-            "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"
-          ],
-          "notes": "5个Chapter2敌人：裂隙幽灵（护盾叠加）、裂隙游猎者（召唤流）、暴击裂隙兽（暴击流）、裂隙巨兽（HP共享）、裂隙领航者（护盾+召唤混合）。同步输出GDD v1.2（Ch2-5故事大纲+敌人类型+卡牌调整）。"
-        },
-        "M2-4": {
-          "status": "done",
-          "name": "卡牌数据审查（manifest vs numbers 对齐）",
-          "owner": "Kairos",
-          "doneAt": "2026-05-13",
-          "files": [
-            "design-output/card-audit-report.md"
-          ],
-          "notes": "发现两套卡池体系完全不同（manifest 20张东方古风 vs numbers 28张暗影系），卡名/类型/稀有度/能耗全部不对应。card-004配图（玄武护卫）与数据（穿云箭·攻击）存在错位。Chapter2-5敌人数值曲线经验证整体合理。需Artoria和Orion确认最终卡池方案（合并或映射）。"
-        },
-        "M2-5": {
-          "status": "done",
-          "name": "卡牌美术规范文档（20张卡 AI 提示词 + 色值规范）",
-          "owner": "Artoria",
-          "doneAt": "2026-05-13",
-          "files": [
-            "ArtDocuments/card-asset-manifest-v2.md",
-            "ArtDocuments/card-color-spec.md"
-          ],
-          "notes": "card-asset-manifest-v2.md：20张卡完整AI提示词（card-020天眼通截断部分已补全）。card-color-spec.md：四类型精确色值（Attack=E63946朱红/Defense=457B9D藏青/Transform=9B5DE5紫藤/Utility=2A9D8F青绿）+ 每类型AI颜色关键词列表 + 标准负面提示词。目录清理：旧card-asset-manifest.md→v1作废，删除所有旧card-XXX.json，CardAssets/目录建立。"
-        }
+        "M2-2": { "status": "done", "name": "5个Boss机制完整实现", "owner": "Orion", "doneAt": "2026-05-12", "files": ["Assets/_Game/Gameplay/Boss/BossBase.cs", "Assets/_Game/Gameplay/Boss/BossGuardian.cs", "Assets/_Game/Gameplay/Boss/BossMirror.cs", "Assets/_Game/Gameplay/Boss/BossHourglass.cs", "Assets/_Game/Gameplay/Boss/BossSpider.cs"] },
+        "M2-3": { "status": "done", "name": "Chapter2 敌人设计（5个新敌人配置）", "owner": "Kairos", "doneAt": "2026-05-13", "files": ["Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_11.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_12.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_13.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_14.cs", "Assets/_Game/Gameplay/LevelConfigs/LevelConfig_Ch2_15.cs"] },
+        "M2-4": { "status": "done", "name": "卡牌数据审查（manifest vs numbers 对齐）", "owner": "Kairos", "doneAt": "2026-05-13", "files": ["design-output/card-audit-report.md"] },
+        "M2-5": { "status": "done", "name": "卡牌美术规范文档（20张卡 AI 提示词 + 色值规范）", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["ArtDocuments/card-asset-manifest-v2.md", "ArtDocuments/card-color-spec.md"] },
+        "M2-6": { "status": "done", "name": "卡池整合方案（20张方案确立）", "owner": "Nyx", "doneAt": "2026-05-14", "files": ["design-output/card-pool-resolution.md", "design-output/card-pool-tech-review.md", "design-output/card-pool-final-resolution.md"], "notes": "决策：20张美术规范为基础，4类型体系，能耗5-35区间，ID格式统一card-XXX。" },
+        "M2-7": { "status": "done", "name": "card-004 配图重新生成（弓箭手射箭图）", "owner": "Artoria", "doneAt": "2026-05-14", "files": ["ArtDocuments/card-004-patch-prompt.md"], "notes": "修正方向：悬崖边缘动态拉弓姿态，朱红灵光弓弦，云海背景体现穿云意境。配色：E63946朱红主色+0D0D1A深夜蓝黑背景。" },
+        "M2-8": { "status": "pending", "name": "能耗重映射 + 双枚举清理", "owner": "Orion", "notes": "数值0-6→美术5-35重映射，清理CardData.cs双枚举问题。" }
       }
     },
     "M3": {
       "name": "UI/UX",
       "subtasks": {
-        "M3-1": {
-          "status": "done",
-          "name": "Boss HP条动画系统",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/BossHPUI.cs"
-          ],
-          "notes": "Boss血条平滑消耗动画（Displayed slider延迟跟随）+ 受击抖动（Perlin噪声）+ 颜色渐变（高/中/低）+ 护盾显示 + 相位切换 + 死亡动画。Singleton模式，与BattleFlowManager.OnEnemyHpChanged/OnBossPhaseChanged/OnBossShieldChanged对接。"
-        },
-        "M3-2": {
-          "status": "done",
-          "name": "伤害数字弹出",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/DamagePopup.cs"
-          ],
-          "notes": "伤害数字弹出系统，支持Damage/Crit/Heal/Energy/BossDamage五种类型，弹性入场+上浮+淡出缩小，动效复用池（Pool）优化。BattleUIConnector驱动BattleFlowManager事件到DamagePopup。"
-        },
-        "M3-3": {
-          "status": "done",
-          "name": "战斗结算界面",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/SettlementUI.cs"
-          ],
-          "notes": "胜负弹窗，支持胜利/失败两种结果，入场动画（EaseOutBack缩放）+ 按钮延迟入场，统计显示（回合/伤害/连消/卡牌），三个按钮（重试/下一关/主菜单）。事件驱动：BattleFlowManager.OnBattleFinished。"
-        },
-        "M3-4": {
-          "status": "done",
-          "name": "UI事件总线桥接",
-          "owner": "Orion",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/BattleUIConnector.cs"
-          ],
-          "notes": "BattleFlowManager事件到各UI面板的桥接器。处理OnEnemyHpChanged→BossHPUI+DamagePopup，OnPlayerDamaged→HUDUI+DamagePopup，OnEliminationOccurred→BoardUI.PlayMatchVFX+DamagePopup，OnBattleFinished→SettlementUI胜负判断。统计本场战斗总伤害/最高连消/出牌数。"
-        },
-        "M3-5": {
-          "status": "done",
-          "name": "消除特效集成",
-          "owner": "Artoria",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/Gameplay/MatchSystem/MatchVFXManager.cs"
-          ],
-          "notes": "MatchVFXManager：EMatchType枚举（Normal/FourLine/LShape/TShape/CrossUltimate）+ 5种VFX预制体接口 + 占位符颜色块系统（无预制体时使用）+ PlayEliminationVFX/PlayDamagePopup/PlayHealPopup/PlayEnergyBoost + CascadeVFXBinder静态扩展方法自动绑定到CascadeController.OnPiecesEliminated。参考art-output/effect-animation.md实现所有缓动曲线和时长规格。"
-        },
-        "M3-6": {
-          "status": "done",
-          "name": "商店UI原型",
-          "owner": "Artoria",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/ShopView.cs"
-          ],
-          "notes": "ShopView：GridLayout卡片布局（4列）+ Currency显示（🪙+金色）+ BuyButton状态（可购买绿色/不可购买灰色）+ 卡牌入场动画（ease-out从下方滑入）+ RefreshCards/SetCurrency公共API + ShopCardData数据结构（CardName/Price/ArtSprite/Rarity/Attack/Defense/Description）。对接ShopUI现有结构。"
-        },
-        "M3-7": {
-          "status": "done",
-          "name": "存档/读档UI",
-          "owner": "Artoria",
-          "doneAt": "2026-05-13",
-          "files": [
-            "Assets/_Game/UI/SlotUI.cs",
-            "Assets/_Game/SaveSystem/SlotData.cs",
-            "Assets/_Game/SaveSystem/SimpleSaveManager.cs"
-          ],
-          "notes": "SlotUI：3个存档槽（BuildSlots + SlotItem类）+ 空槽/已填充槽显示 + 存/读/删除按钮 + 槽位入场动画（spring弹性缩放）+ Show(saveMode)/Hide/RefreshAllSlots公共API。对接CardMatch.SaveSystem.SlotData（Load/Save/Delete/Exists）。SimpleSaveManager协调游戏状态保存与加载。占位符SaveSystem（JSON file persistence）。"
-        }
+        "M3-1": { "status": "done", "name": "Boss HP条动画系统", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/BossHPUI.cs"] },
+        "M3-2": { "status": "done", "name": "伤害数字弹出", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/DamagePopup.cs"] },
+        "M3-3": { "status": "done", "name": "战斗结算界面", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/SettlementUI.cs"] },
+        "M3-4": { "status": "done", "name": "UI事件总线桥接", "owner": "Orion", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/BattleUIConnector.cs"] },
+        "M3-5": { "status": "done", "name": "消除特效集成", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["Assets/_Game/Gameplay/MatchSystem/MatchVFXManager.cs"] },
+        "M3-6": { "status": "done", "name": "商店UI原型", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/ShopView.cs"] },
+        "M3-7": { "status": "done", "name": "存档/读档UI", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["Assets/_Game/UI/SlotUI.cs", "Assets/_Game/SaveSystem/SlotData.cs", "Assets/_Game/SaveSystem/SimpleSaveManager.cs"] }
       }
     }
   }
