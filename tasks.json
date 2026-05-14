@@ -25,7 +25,7 @@
         "M2-5": { "status": "done", "name": "卡牌美术规范文档（20张卡 AI 提示词 + 色值规范）", "owner": "Artoria", "doneAt": "2026-05-13", "files": ["ArtDocuments/card-asset-manifest-v2.md", "ArtDocuments/card-color-spec.md"] },
         "M2-6": { "status": "done", "name": "卡池整合方案（20张方案确立）", "owner": "Nyx", "doneAt": "2026-05-14", "files": ["design-output/card-pool-resolution.md", "design-output/card-pool-tech-review.md", "design-output/card-pool-final-resolution.md"], "notes": "决策：20张美术规范为基础，4类型体系，能耗5-35区间，ID格式统一card-XXX。" },
         "M2-7": { "status": "done", "name": "card-004 配图重新生成（弓箭手射箭图）", "owner": "Artoria", "doneAt": "2026-05-14", "files": ["ArtDocuments/card-004-patch-prompt.md"], "notes": "修正方向：悬崖边缘动态拉弓姿态，朱红灵光弓弦，云海背景体现穿云意境。配色：E63946朱红主色+0D0D1A深夜蓝黑背景。" },
-        "M2-8": { "status": "pending", "name": "能耗重映射 + 双枚举清理", "owner": "Orion", "notes": "数值0-6→美术5-35重映射，清理CardData.cs双枚举问题。" }
+        "M2-8": { "status": "done", "name": "能耗重映射 + 双枚举清理", "owner": "Orion", "doneAt": "2026-05-14", "files": ["design-output/energy-remap-and-enum-cleanup.md"], "notes": "能耗直接使用美术规范5-35区间，无需转换。CardType旧枚举已删除，统一ECardType{Attack/Defense/Transform/Utility}。涉及6个文件：CardData.cs/HandManager.cs/CardExecutor.cs/BidirectionalLinker.cs/BattleFlowManager.cs/ComboManager.cs。"
       }
     },
     "M3": {
