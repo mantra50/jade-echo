@@ -28,31 +28,26 @@ namespace CardMatch.Gameplay.CardSystem
 
             switch (card.CardType)
             {
-                case CardType.ClearRow:
-                    return ExecuteClearRow(targetY, grid);
+                case ECardType.Attack:
+                    // Range > 1 → AOE 区域清除
+                    if (card.Range > 1)
+                        return ExecuteClearArea(targetX, targetY, card.Range, grid);
+                    // 指定元素 → 炸弹消除
+                    else if (card.TargetElement != ElementType.None)
+                        return ExecuteBomb(card.TargetElement, grid);
+                    // 默认 → 清除一行
+                    else
+                        return ExecuteClearRow(targetY, grid);
 
-                case CardType.ClearCol:
-                    return ExecuteClearCol(targetX, grid);
+                case ECardType.Defense:
+                    // 防御类无棋盘消除逻辑
+                    return new List<Piece>();
 
-                case CardType.ClearArea:
-                    return ExecuteClearArea(targetX, targetY, card.Range, grid);
-
-                case CardType.Bomb:
-                    return ExecuteBomb(card.TargetElement, grid);
-
-                case CardType.Shuffle:
+                case ECardType.Transform:
                     return ExecuteShuffle(grid);
 
-                case CardType.Swap:
-                    // Swap 需要两个坐标，暂不支持，跳过
-                    return new List<Piece>();
-
-                case CardType.EnergyBoost:
-                    // 能量直接加，不涉及棋子消除，这里返回空列表
-                    return new List<Piece>();
-
-                case CardType.Heal:
-                    // 回血不涉及棋盘，返回空列表
+                case ECardType.Utility:
+                    // 能量获取/卡牌回收无棋盘消除
                     return new List<Piece>();
 
                 default:

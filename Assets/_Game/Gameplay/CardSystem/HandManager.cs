@@ -110,7 +110,7 @@ namespace CardMatch.Gameplay.CardSystem
             var clearRow = ScriptableObject.CreateInstance<CardData>();
             clearRow.CardId   = "clear_row_1";
             clearRow.CardName = "横斩";
-            clearRow.CardType = CardType.ClearRow;
+            clearRow.CardType = ECardType.Attack;
             clearRow.EnergyCost = 3;
             clearRow.Description = "清除棋盘上任意一行";
             clearRow.Range = 1;
@@ -120,7 +120,7 @@ namespace CardMatch.Gameplay.CardSystem
             var bomb = ScriptableObject.CreateInstance<CardData>();
             bomb.CardId   = "bomb_fire_1";
             bomb.CardName = "元素爆弹";
-            bomb.CardType = CardType.Bomb;
+            bomb.CardType = ECardType.Attack;
             bomb.EnergyCost = 4;
             bomb.Description = "消除场上所有指定元素的棋子";
             bomb.Range = 0;
@@ -132,7 +132,7 @@ namespace CardMatch.Gameplay.CardSystem
             var clearArea = ScriptableObject.CreateInstance<CardData>();
             clearArea.CardId   = "clear_area_1";
             clearArea.CardName = "星爆";
-            clearArea.CardType = CardType.ClearArea;
+            clearArea.CardType = ECardType.Attack;
             clearArea.EnergyCost = 5;
             clearArea.Description = "3×3 区域清除";
             clearArea.Range = 1;  // 1 = 3×3（含中心）
@@ -142,7 +142,7 @@ namespace CardMatch.Gameplay.CardSystem
             var energyBoost = ScriptableObject.CreateInstance<CardData>();
             energyBoost.CardId   = "energy_boost_1";
             energyBoost.CardName = "能量灌注";
-            energyBoost.CardType = CardType.EnergyBoost;
+            energyBoost.CardType = ECardType.Utility;
             energyBoost.EnergyCost = 2;
             energyBoost.Description = "回复 20 能量点";
             energyBoost.Value = 20;

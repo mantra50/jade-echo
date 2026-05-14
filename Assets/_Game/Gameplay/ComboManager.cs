@@ -103,7 +103,7 @@ namespace CardMatch.Gameplay
 
             foreach (var card in handCards)
             {
-                if (card.CardType == CardType.EnergyBoost && !_activatedUltimateIds.Contains(card.CardId))
+                if (card.CardType == ECardType.Utility && !_activatedUltimateIds.Contains(card.CardId))
                 {
                     _activatedUltimateIds.Add(card.CardId);
                     _sparkLevel = 0;

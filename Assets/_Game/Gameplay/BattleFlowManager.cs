@@ -481,7 +481,7 @@ namespace CardMatch.Gameplay
             foreach (var card in _hand.Hand)
             {
                 // 火花达到3级且卡牌类型为全局类
-                if (_combo.SparkLevel >= 3 && card.CardType == CardType.EnergyBoost)
+                if (_combo.SparkLevel >= 3 && card.CardType == ECardType.Utility)
                     result.Add(card);
             }
             return result;

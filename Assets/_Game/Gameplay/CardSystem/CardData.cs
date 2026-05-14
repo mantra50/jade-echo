@@ -4,22 +4,6 @@ using UnityEngine;
 namespace CardMatch.Gameplay.CardSystem
 {
     /// <summary>
-    /// 卡牌类型枚举
-    /// </summary>
-    public enum CardType
-    {
-        None        = 0,
-        ClearRow    = 1,   // 清除一整行
-        ClearCol    = 2,   // 清除一整列
-        ClearArea   = 3,   // 3×3 区域清除
-        Bomb        = 4,   // 消除指定类型的所有棋子
-        Shuffle     = 5,   // 重置棋盘（随机打乱）
-        Swap        = 6,   // 强制交换两个棋子
-        EnergyBoost = 7,   // 直接给能量
-        Heal        = 8    // 回血
-    }
-
-    /// <summary>
     /// 卡牌数据 ScriptableObject — 定义单张卡牌的元数据
     /// </summary>
     [CreateAssetMenu(fileName = "NewCard", menuName = "CardMatch/Card Data")]

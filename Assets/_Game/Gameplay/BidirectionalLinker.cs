@@ -144,20 +144,19 @@ namespace CardMatch.Gameplay
 
             switch (card.CardType)
             {
-                case CardType.ClearArea:
-                case CardType.ClearCol:
-                case CardType.ClearRow:
-                    // 在受影响区域中心生成一枚变色炸弹
-                    CreateColorBomb AtCenter(affected, grid);
+                case ECardType.Attack:
+                    // 指定元素 → 生成爆炸区；否则生成变色炸弹
+                    if (card.TargetElement != ElementType.None)
+                        CreateBlastZone(affected, grid);
+                    else
+                        CreateColorBomb AtCenter(affected, grid);
                     break;
 
-                case CardType.Bomb:
-                    // 指定元素全消：以最大聚集区为中心生成爆炸
-                    CreateBlastZone(affected, grid);
-                    break;
-
-                case CardType.Shuffle:
+                case ECardType.Transform:
                     // 洗牌后全屏随机，不生成特殊格子
+                    break;
+
+                default:
                     break;
             }
         }
